@@ -4,11 +4,19 @@
   :license "MIT"
   :depends-on ()
   :components ((:module "day-1"
-                :components
-                ((:file "input")
-                 (:file "solution" :depends-on ("input"))))
+                        :components
+                        ((:file "input")
+                         (:file "solution" :depends-on ("input"))))
                (:module "day-2"
-                :components
-                ((:file "input")
-                 (:file "solution" :depends-on ("input")))))
+                        :components
+                        ((:file "input")
+                         (:file "solution" :depends-on ("input"))))
+               (:module "day-3"
+                        :components
+                        ((:file "input")
+                         (:file "solution" :depends-on ("input"))))
+               (:module "day-4"
+                        :components
+                        ((:file "input")
+                         (:file "solution" :depends-on ("input")))))
   :description "Hacking around for Advent of Code 2021")
