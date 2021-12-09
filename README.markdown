@@ -1,5 +1,0 @@
-# Advent-Of-Code
-
-## Usage
-
-## Installation

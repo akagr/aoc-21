@@ -1,5 +1,5 @@
-* Advent-Of-Code 
+* Advent-Of-Code
 
-** Usage
+These are my solutions to [[https://adventofcode.com/2021][Advent of Code 2021]] coding challenge.
 
-** Installation
+I've been playing around with [[https://common-lisp.net/][Common Lisp]] lately, and decided to use it as a medium to hack solutions together.
