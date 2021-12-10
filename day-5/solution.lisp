@@ -33,12 +33,6 @@
       (reverse (range-increasing v2 v1))
       (range-increasing v1 v2)))
 
-(defvar straights (remove-if #'(lambda (pair)
-                                 (and (/= (x1 pair) (x2 pair))
-                                      (/= (y1 pair) (y2 pair))))
-                             input)
-  "Only horizontal or vertical lines from input")
-
 (defun expand (coordinate-pair)
   "Generates complete expansion of coordinate pair.
    Target input only has vertical, horizontal or diagonal (45 degs) lines."
@@ -62,13 +56,30 @@
                    (range x1 x2)
                    (range y1 y2))))))
 
-(let ((mapping (make-hash-table :test 'equal))
-      (counter 0))
-  (dolist (cpair input)
-    (dolist (pair (expand cpair))
-      (incf (gethash pair mapping 0))))
-  (maphash #'(lambda (k v)
-               (when (> v 1)
-                 (incf counter)))
-           mapping)
-  counter)
+(defun dangerous-count (coordinate-pairs)
+  "Counts dangerous areas; i.e. all points where two or more
+   lines overlap.
+   coordinate-pairs is a list of pair of coordinates. Each pair
+   represents a line."
+  (let ((mapping (make-hash-table :test 'equal))
+        (counter 0))
+    (dolist (cpair coordinate-pairs)
+      (dolist (pair (expand cpair))
+        (incf (gethash pair mapping 0))))
+    (maphash #'(lambda (k v)
+                 (when (> v 1)
+                   (incf counter)))
+             mapping)
+    counter))
+
+;; Answer to first part
+(defvar straights (remove-if #'(lambda (pair)
+                                 (and (/= (x1 pair) (x2 pair))
+                                      (/= (y1 pair) (y2 pair))))
+                             input)
+  "Only horizontal or vertical lines from input")
+
+(dangerous-count straights)
+
+;;Answer to second part
+(dangerous-count input)
