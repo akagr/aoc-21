@@ -58,7 +58,9 @@
 
           (t
            ;; This is a diagonal line
-           (mapcar #'list (range x1 x2) (range y1 y2))))))
+           (mapcar #'list
+                   (range x1 x2)
+                   (range y1 y2))))))
 
 (let ((mapping (make-hash-table :test 'equal))
       (counter 0))
@@ -67,5 +69,6 @@
       (incf (gethash pair mapping 0))))
   (maphash #'(lambda (k v)
                (when (> v 1)
-                 (incf counter))) mapping)
+                 (incf counter)))
+           mapping)
   counter)
