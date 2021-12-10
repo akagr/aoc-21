@@ -22,5 +22,9 @@
                (:module "day-5"
                         :components
                         ((:file "input")
+                         (:file "solution" :depends-on ("input"))))
+               (:module "day-6"
+                        :components
+                        ((:file "input")
                          (:file "solution" :depends-on ("input")))))
   :description "Hacking around for Advent of Code 2021")
