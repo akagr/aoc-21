@@ -27,7 +27,7 @@
 
 (defun match-grid-p (rows moves)
   "Checks if at least one row or column of a grid are matched by moves"
-  (let ((cols (columns grid))
+  (let ((cols (columns rows))
         (match-moves-p (lambda (row-or-col) (matchp row-or-col moves))))
     (or (some match-moves-p rows)
         (some match-moves-p cols))))
