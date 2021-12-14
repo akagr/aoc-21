@@ -17,9 +17,3 @@
   (minimize (iter (for num2 in input)
               (sum (seq-sum (abs (- num
                                     num2)))))))
-
-(let* ((a (make-hash-table)))
-  (setf (gethash :a a) 1)
-  (setf (gethash :b a) 2)
-  (iter (for (key value) in-hashtable a)
-    (collect (list key value))))
