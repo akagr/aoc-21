@@ -1,5 +1,6 @@
 (defpackage advent-of-code/day-7
-  (:use :cl))
+  (:use #:cl
+        #:iterate))
 
 (in-package :advent-of-code/day-7)
 

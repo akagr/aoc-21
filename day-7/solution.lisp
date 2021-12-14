@@ -3,11 +3,9 @@
 (in-package :advent-of-code/day-7)
 
 ;; Answer to part 1
-(loop
-  for num in input
-  minimize (loop
-             for num2 in input
-             sum (abs (- num num2))))
+(iter (for num in input)
+  (minimize (iter (for num2 in input)
+              (sum (abs (- num num2))))))
 
 (defun seq-sum (n)
   "Calculate sum of sequence from 1 to n.
@@ -15,8 +13,13 @@
   (/ (* n (1+ n)) 2))
 
 ;; Answer for part 2
-(loop
-  for num in input
-  minimize (loop
-             for num2 in input
-             sum (seq-sum (abs (- num num2)))))
+(iter (for num in input)
+  (minimize (iter (for num2 in input)
+              (sum (seq-sum (abs (- num
+                                    num2)))))))
+
+(let* ((a (make-hash-table)))
+  (setf (gethash :a a) 1)
+  (setf (gethash :b a) 2)
+  (iter (for (key value) in-hashtable a)
+    (collect (list key value))))

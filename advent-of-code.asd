@@ -2,7 +2,7 @@
   :version "0.1.0"
   :author "Akash Agrawal <akagr@outlook.com>"
   :license "MIT"
-  :depends-on ()
+  :depends-on (#:iterate)
   :components ((:module "day-1"
                         :components
                         ((:file "input")
